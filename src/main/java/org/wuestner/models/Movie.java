@@ -21,16 +21,15 @@ public class Movie {
 	@ManyToOne
 	private Genre genre;
 	
-	@NotNull
-	@Size(min=1, max=30)
-	private String director;
+	@ManyToOne
+	private Director director;
 
 	/**
 	 * @param title
 	 * @param genre
 	 * @param director
 	 */
-	public Movie(String title, Genre genre, String director) {
+	public Movie(String title, Genre genre, Director director) {
 		super();
 		this.title = title;
 		this.genre = genre;
@@ -70,14 +69,14 @@ public class Movie {
 	/**
 	 * @return the director
 	 */
-	public String getDirector() {
+	public Director getDirector() {
 		return director;
 	}
 
 	/**
 	 * @param director the director to set
 	 */
-	public void setDirector(String director) {
+	public void setDirector(Director director) {
 		this.director = director;
 	}
 

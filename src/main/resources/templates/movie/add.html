@@ -15,16 +15,21 @@
 	<div>
 		<label th:for="genre">Genre</label>
 		<select name="genreId">
-		<option th:each="genre : ${genres}"
-		th:text="${genre.name}"
-		th:value="${genre.id}"></option>
+			<option th:each="genre : ${genres}"
+					th:text="${genre.name}"
+					th:value="${genre.id}">
+			</option>
 		</select>
 	</div>
 	
 	<div>
 		<label th:for="director">Director</label>
-		<input th:field="*{director}" />
-		<span th:errors="*{director}" class="error"></span>
+			<select name="directorId">
+				<option th:each="director : ${directors}"
+						th:text="${director.first_name} + ' ' + ${director.last_name}"
+						th:value="${director.id}">
+				</option>
+			</select>
 	</div>
 	
 	<input type="submit" value="Add Movie" /> 
