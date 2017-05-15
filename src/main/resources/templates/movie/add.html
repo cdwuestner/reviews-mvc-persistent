@@ -14,8 +14,11 @@
 	
 	<div>
 		<label th:for="genre">Genre</label>
-		<input th:field="*{genre}" />
-		<span th:errors="*{genre}" class="error"></span>
+		<select name="genreId">
+		<option th:each="genre : ${genres}"
+		th:text="${genre.name}"
+		th:value="${genre.id}"></option>
+		</select>
 	</div>
 	
 	<div>

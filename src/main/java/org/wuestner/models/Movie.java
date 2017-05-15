@@ -3,6 +3,7 @@ package org.wuestner.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -17,9 +18,8 @@ public class Movie {
 	@Size(min=1, max=30)
 	private String title;
 	
-	@NotNull
-	@Size(min=1, max=15)
-	private String genre;
+	@ManyToOne
+	private Genre genre;
 	
 	@NotNull
 	@Size(min=1, max=30)
@@ -30,7 +30,7 @@ public class Movie {
 	 * @param genre
 	 * @param director
 	 */
-	public Movie(String title, String genre, String director) {
+	public Movie(String title, Genre genre, String director) {
 		super();
 		this.title = title;
 		this.genre = genre;
@@ -56,14 +56,14 @@ public class Movie {
 	/**
 	 * @return the genre
 	 */
-	public String getGenre() {
+	public Genre getGenre() {
 		return genre;
 	}
 
 	/**
 	 * @param genre the genre to set
 	 */
-	public void setGenre(String genre) {
+	public void setGenre(Genre genre) {
 		this.genre = genre;
 	}
 
